@@ -17,6 +17,7 @@ import useDirectory from "@/hooks/useDirectory";
 const Directory = () => {
   const { directoryState, toggleMenuOpen } = useDirectory();
   // console.log(directoryState.selectedMenuItem.imageURL, "hello");
+  console.log(directoryState.selectedMenuItem.icon, "hello");
 
   return (
     <div>

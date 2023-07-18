@@ -31,6 +31,7 @@ import { useSetRecoilState } from "recoil";
 
 type Props = {
   user: User;
+  communityImageURL?: string;
 };
 
 const formTabs: TabItems[] = [
@@ -61,7 +62,7 @@ export type TabItems = {
   icon: typeof Icon.arguments;
 };
 
-const NewPostForm = ({ user }: Props) => {
+const NewPostForm = ({ user, communityImageURL }: Props) => {
   const params = useParams();
   const router = useRouter();
   const [selectedTab, setSelectedTab] = useState(formTabs[0].title);
@@ -85,6 +86,7 @@ const NewPostForm = ({ user }: Props) => {
       numberOfComments: 0,
       voteStatus: 0,
       createdAt: serverTimestamp() as Timestamp,
+      communityImageURL: communityImageURL || "",
     };
 
     // store the post in db

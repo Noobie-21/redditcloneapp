@@ -26,48 +26,50 @@ const Communities = (props: CommunitiesProps) => {
         handleClose={() => setOpen(false)}
         userId={user?.uid!}
       />
+      {mySnippets.find((item) => item.isModerator) && (
+        <Box mt={3} my={3}>
+          <Text
+            pl={3}
+            mb={1}
+            fontSize={"7pt"}
+            fontWeight={500}
+            color={"gray.400"}
+          >
+            MODETRATING
+          </Text>
 
-      <Box mt={3} my={3}>
-        <Text
-          pl={3}
-          mb={1}
-          fontSize={"7pt"}
-          fontWeight={500}
-          color={"gray.400"}
-        >
-          MODETRATING
-        </Text>
-
-        <MenuItem
-          width="100%"
-          fontSize="10pt"
-          _hover={{
-            bg: "gray.100",
-          }}
-        >
-          <Flex
-            align={"center"}
-            onClick={() => {
-              setOpen(true);
+          <MenuItem
+            width="100%"
+            fontSize="10pt"
+            _hover={{
+              bg: "gray.100",
             }}
           >
-            <Icon as={GrAdd} fontSize={20} mr={1} />
-            Create Community
-          </Flex>
-        </MenuItem>
-        {mySnippets
-          .filter((snippet) => snippet.isModerator)
-          .map((snippet) => (
-            <MenuListItem
-              key={snippet.communityId}
-              icon={FaReddit}
-              displayText={`r/${snippet.communityId}`}
-              iconColor="blue.500"
-              link={`/r/${snippet.communityId}`}
-              imageURL={snippet.imageURL}
-            />
-          ))}
-      </Box>
+            <Flex
+              align={"center"}
+              onClick={() => {
+                setOpen(true);
+              }}
+            >
+              <Icon as={GrAdd} fontSize={20} mr={1} />
+              Create Community
+            </Flex>
+          </MenuItem>
+          {mySnippets
+            .filter((snippet) => snippet.isModerator)
+            .map((snippet) => (
+              <MenuListItem
+                key={snippet.communityId}
+                icon={FaReddit}
+                displayText={`r/${snippet.communityId}`}
+                iconColor="blue.500"
+                link={`/r/${snippet.communityId}`}
+                imageURL={snippet.imageURL}
+              />
+            ))}
+        </Box>
+      )}
+
       <Box mt={3} my={3}>
         <Text
           pl={3}

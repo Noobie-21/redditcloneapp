@@ -15,7 +15,7 @@ interface DirectoryMenuState {
   selectedMenuItem: directoryMenuItem;
 }
 
-export const directoryMenuItems: directoryMenuItem = {
+export const defaultMenuItem = {
   displayText: "Home",
   link: "/",
   icon: TiHome,
@@ -24,7 +24,7 @@ export const directoryMenuItems: directoryMenuItem = {
 
 export const defaultMenuState: DirectoryMenuState = {
   isOpen: false,
-  selectedMenuItem: directoryMenuItems,
+  selectedMenuItem: defaultMenuItem,
 };
 export const directoryMenuState = atom<DirectoryMenuState>({
   key: "directoryMenuState",
